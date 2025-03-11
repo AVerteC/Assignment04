@@ -1,29 +1,57 @@
 // ADD A FUNCTION CALLED CALCULATE
-function calculate(x, y, op) {
-    if (operation = "+") {
-        return x + y;
-    }
-    else if (operation = "-") {
-        return x - y;
-    }
-    else if (operation = "*") {
-        return x * y;
-    }
-    else if (operation = "/") {
-        return x / y;
+function calculate(x, y, operation) {
+    switch(operation) {
+        case "+":
+            return x + y;
+        case "-":
+            return x - y;
+        case "*":
+            return x * y;
+        case "/":
+            return x / y;
     }
 }
-// COLLECT FIRST NUMBER FROM USER
-while (isNaN(a));
+ 
+function getUserInputNumber(message) {
+    let userInput;
+    do {
+        userInput = prompt(`${message}`);
+    } while (isNaN(userInput) || userInput === null);
+    console.log(userInput);
+    return userInput;
+}
 
-let numOne = prompt("Enter first number:");
-let a = parseFloat(numOne);
+function getOperation() {
+    let userOperator;
+    do {
+        userOperator = prompt("Enter the math operation to perform.\nAdd, Subtract, Multiply or Divide\nChoose (+,-,*,/):");
 
-// COLLECT SECOND NUMBER FROM USER
-let numTwo = prompt("Enter second number:");
-let b = parseFloat(numTwo);
+    } while (userOperator !== "+" && userOperator !== "-" && userOperator !== "*" && userOperator !== "/")
+    console.log(userOperator);
+    return userOperator;
+}
 
-// COLLECT OPERATION TO PERFORM (+,-,*,/) FROM USER
-let 
+function mainLogic() {
+    // COLLECT FIRST NUMBER FROM USER
+    let numOne = getUserInputNumber("Enter first number:");
+    let a = parseFloat(numOne);
 
-// CALL THE FUNCTION AND RETURN THE RESULT WITHIN AN ALERT
+    // COLLECT SECOND NUMBER FROM USER
+    let numTwo = getUserInputNumber("Enter second number:");
+    let b = parseFloat(numTwo);
+
+    // COLLECT OPERATION TO PERFORM (+,-,*,/) FROM USER
+    let operation = getOperation();
+
+    // CALL THE FUNCTION AND RETURN THE RESULT WITHIN AN ALERT
+    let answer = calculate(a, b, operation);
+    alert(`${a} ${operation} ${b} = ${answer}`);
+}
+
+let goAgain = "y";
+do {
+    mainLogic();
+    do {
+        goAgain = prompt("Do you want to calculate again? (y/n)", "y");
+    } while (goAgain !== "y" && goAgain !== "n");
+} while (goAgain === "y");
