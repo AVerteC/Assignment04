@@ -32,16 +32,22 @@ function game() {
         alert("It's a tie!");
     }
     else if (userChoice === 'rock' && computerChoice === 'scissors') {
-        alert("You win! Rock beats scissors.");
+        alert("You win! Rock destroys scissors.");
     }
     else if (userChoice === 'paper' && computerChoice === 'rock') {
-        alert("You win! Paper beats rock.");
+        alert("You win! Paper covers rock.");
     }
     else if (userChoice === 'scissors' && computerChoice === 'paper') {
-        alert("You win! Scissors beat paper.");
+        alert("You win! Scissors cut paper.");
     }
-    else {
-        alert(`You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${userChoice}.`);
+    else if (computerChoice === 'rock' && userChoice === 'scissors'){
+        alert(`You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} destroys ${userChoice}.`);
+    }
+    else if (computerChoice === 'paper' && userChoice === 'rock'){
+        alert(`You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} covers ${userChoice}.`);
+    }
+    else if (computerChoice === 'scissors' && userChoice === 'paper'){
+        alert(`You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} cut ${userChoice}.`);
     }
 }
 
