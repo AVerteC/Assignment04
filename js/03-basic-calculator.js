@@ -25,6 +25,9 @@ function getOperation() {
     let userOperator;
     do {
         userOperator = prompt("Enter the math operation to perform.\nAdd, Subtract, Multiply or Divide\nChoose (+,-,*,/):");
+        if (userOperator !== "+" && userOperator !== "-" && userOperator !== "*" && userOperator !== "/") {
+            alert("Invalid operator input. Please input (+,-,*,/).")
+        }
 
     } while (userOperator !== "+" && userOperator !== "-" && userOperator !== "*" && userOperator !== "/")
     console.log(userOperator);
