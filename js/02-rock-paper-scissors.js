@@ -12,12 +12,14 @@ function getUserChoice() {
 }
 
 function game() {
+    // Collect user choice
     let userChoice = getUserChoice();
     if (userChoice === null) {
         alert("User canceled input. Game ended.")
         return;
     }
 
+    // Collect computer choice
     let computerChoice = Math.floor(Math.random() * 3);
     if (computerChoice === 0) {
         computerChoice = 'rock';
@@ -51,15 +53,18 @@ function game() {
     }
 }
 
-let playAgain = "y";
-do {
-    game();
-    do {
-        playAgain = prompt("Do you want to play again? (y/n)", "y");
-        if (playAgain !== null) {
-            playAgain = playAgain.toLowerCase();
-        }
-    } while (playAgain !== "y" && playAgain !== "n");
-} while (playAgain === "y");
-console.log("Game ended by user.")
+game();
+
+// Replay game loop
+// let playAgain = "y";
+// do {
+//     game();
+//     do {
+//         playAgain = prompt("Do you want to play again? (y/n)", "y");
+//         if (playAgain !== null) {
+//             playAgain = playAgain.toLowerCase();
+//         }
+//     } while (playAgain !== "y" && playAgain !== "n");
+// } while (playAgain === "y");
+// console.log("Game ended by user.")
 
