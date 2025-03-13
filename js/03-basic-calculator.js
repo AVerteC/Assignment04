@@ -8,6 +8,9 @@ function calculate(x, y, operation) {
         case "*":
             return x * y;
         case "/":
+            if (y === 0) {
+                return NaN;
+            }
             return x / y;
     }
 }
@@ -48,8 +51,8 @@ function mainLogic() {
 
     // CALL THE FUNCTION AND RETURN THE RESULT WITHIN AN ALERT
     let answer = calculate(numOne, numTwo, operation);
-    if (isFinite(answer) === false) {
-        answer = "Can't divide by 0";
+    if (numTwo === 0 && operation === "/") {
+        answer = "NaN.\nCan't divide by 0";
     }
     alert(`${numOne} ${operation} ${numTwo} = ${answer}`);
 }
