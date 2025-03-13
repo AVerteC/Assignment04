@@ -25,14 +25,11 @@ function getUserInputNumber(message) {
 
 function getOperation() {
     let userOperator;
-    do {
-        userOperator = prompt("Enter the math operation to perform.\nAdd, Subtract, Multiply or Divide\nChoose (+,-,*,/):");
-        if (userOperator !== "+" && userOperator !== "-" && userOperator !== "*" && userOperator !== "/") {
-            alert("Invalid operator input. Please input (+,-,*,/).")
-        }
-
-    } while (userOperator !== "+" && userOperator !== "-" && userOperator !== "*" && userOperator !== "/")
-    console.log(userOperator);
+    userOperator = prompt("Enter the math operation to perform.\nAdd, Subtract, Multiply or Divide\nEnter (+,-,*,/):");
+    if (userOperator !== "+" && userOperator !== "-" && userOperator !== "*" && userOperator !== "/") {
+        alert("Invalid operator input. Please input (+,-,*,/).")
+        return null;
+    }
     return userOperator;
 }
 
@@ -45,6 +42,9 @@ function mainLogic() {
 
     // COLLECT OPERATION TO PERFORM (+,-,*,/) FROM USER
     let operation = getOperation();
+    if (operation === null){
+        return;
+    }
 
     // CALL THE FUNCTION AND RETURN THE RESULT WITHIN AN ALERT
     let answer = calculate(numOne, numTwo, operation);
